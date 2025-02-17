@@ -4,8 +4,9 @@ import com.example.ConsumerService.Entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product, String> {
-    Product findByProductId(String productId);
-    boolean existsByProductId(String productId);
+    List<Product> findAllByProductIdIn(List<String> productIds);
 }
